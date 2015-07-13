@@ -18,11 +18,11 @@ fi
 $cmd has -t $session
 
 if [ $? != 0 ]; then
-	$cmd new -d -s $session -n shell1 "bash"
-	$cmd splitw -h -t $session "bash"
-	$cmd splitw -v -t $session "bash"
-	$cmd neww -t $session -n shell2 "bash"
-	$cmd splitw -h -t $session "bash"
+	$cmd new -d -s $session -n shell1
+	$cmd splitw -h -t $session
+	$cmd splitw -v -t $session
+	$cmd neww -t $session -n shell2
+	$cmd splitw -h -t $session
 	$cmd selectw -t $session:0
 fi
 
