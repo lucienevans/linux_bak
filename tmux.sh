@@ -8,7 +8,7 @@
 #
 
 cmd=$(which tmux) # tmux path
-session=BGI   # session name
+session=$1   # session name
 
 if [ -z $cmd ]; then
 	echo "You need to install tmux."
