@@ -429,7 +429,7 @@ function! s:my_cr_function()
     "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent> <expr><TAB>  pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
@@ -445,14 +445,14 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Or set this.
 "let g:neocomplete#enable_cursor_hold_i = 1
 " Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
+let g:neocomplete#enable_insert_char_pre = 1
 " AutoComplPop like behavior.
 "let g:neocomplete#enable_auto_select = 1
 " Shell like behavior(not recommended).
 "set completeopt+=longest
 "let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+let g:neocomplete#disable_auto_complete = 1
+" inoremap <expr><TAB>  pumvisible() ? "\<Down>" : neocomplete#start_manual_complete()
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -469,6 +469,9 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+" Supertab
+" let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 
 highlight Comment ctermfg=green guifg=green
 " JSON Format
