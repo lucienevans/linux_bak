@@ -26,6 +26,6 @@ if [ $? != 0 ]; then
 	$cmd selectw -t $session:0
 fi
 
-$cmd att -t $session
+$cmd att -t $session -d
 
 exit 0
